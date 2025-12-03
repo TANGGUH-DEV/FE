@@ -1,0 +1,13 @@
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../auth/authContext";
+import type { ReactNode } from "react";
+
+
+export default function AuthGuard({ children }: { children: ReactNode }) {
+  const { user, loading } = useAuth();
+
+  if (loading) return <div>Loading...</div>;
+  if (!user) return <Navigate to="/login" />;
+
+  return <>{children}</>;
+}

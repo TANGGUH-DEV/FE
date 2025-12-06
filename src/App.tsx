@@ -6,7 +6,7 @@ import AuthGuard from "../src/auth/Auth Guard";
 import { AuthProvider } from "./auth/authContext";
 import PortfolioDrone from "./pages/projectPage";
 import Admin from "./pages/admin";
-import User from "./pages/user";
+import {User} from "./pages/user";
 import PageGuard from "./auth/PageGuard";
 import { BeritaDetail } from "./components/berita/detail";
 import { BeritaList } from "./components/berita/halamanBerita";
@@ -60,7 +60,7 @@ export default function App() {
               element={
                 <AuthGuard>
                   <PageGuard allowedRoles={["USER"]}>
-                    <User />
+                    <User/>
                   </PageGuard>
                 </AuthGuard>
               }

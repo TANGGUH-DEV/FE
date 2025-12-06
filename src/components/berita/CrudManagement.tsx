@@ -126,11 +126,11 @@ export const NewsManagementSection: React.FC = () => {
       if (!user) return;
       const token = await user.getIdToken();
 
-      await api.delete(`/media/news/${newsToDelete.id}/`, {
+      await api.delete(`/media/news/${newsToDelete.slug}/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      setNewsList((prev) => prev.filter((n) => n.id !== newsToDelete.id));
+      setNewsList((prev) => prev.filter((n) => n.slug !== newsToDelete.slug));
       setOpenDeleteDialog(false);
       setNewsToDelete(null);
     } catch (error) {

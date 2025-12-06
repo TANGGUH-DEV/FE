@@ -126,7 +126,7 @@ export const NewsManagementSection: React.FC = () => {
       if (!user) return;
       const token = await user.getIdToken();
 
-      await api.delete(`/media/berita-upload/${newsToDelete.id}/`, {
+      await api.delete(`/berita/berita-upload/${newsToDelete.id}/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

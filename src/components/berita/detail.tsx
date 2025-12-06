@@ -26,6 +26,8 @@ interface Berita {
   updated_at: string;
 }
 
+
+
 export function BeritaDetail() {
   const { slug } = useParams();
   const [data, setData] = useState<Berita | null>(null);
@@ -140,5 +142,7 @@ export function BeritaDetail() {
         </CardContent>
       </Card>
     </Container>
+    
+
   );
 }

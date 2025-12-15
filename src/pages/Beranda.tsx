@@ -10,6 +10,10 @@
   import { BeritaList } from "../components/berita/halamanBerita";
   import api from "../interceptor/intercep";
   import { useQuery } from "@tanstack/react-query";
+  import { CircularProgress } from "@mui/material";
+  import { Box } from "@mui/material";
+  
+
 
   export function HomePage() {
 
@@ -40,7 +44,19 @@
     });
 
     if (beritaQuery.isLoading || mediaQuery.isLoading) {
-      return <p>Loading...</p>;
+      return (
+      <Box sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        gap: 2,
+        }}>
+          
+        <CircularProgress/>
+      </Box>
+     )
     }
 
     return (

@@ -13,6 +13,8 @@ import {
   Alert,
   Divider,
 } from "@mui/material";
+import { Navbar } from "../bundlingBeranda/navbar";
+import Footer from "../bundlingBeranda/footer";
 
 interface Berita {
   id: number;
@@ -93,8 +95,14 @@ export function BeritaDetail() {
   const imageToShow = data.thumbnail || data.file_get_optimized || "/fallback.jpg";
 
   return (
+
+    <>
+
+    <Navbar activeSection="portfolio" onNavigate={(section) => console.log(section)} />
+    <Box sx={{Height:64}}/>
+
     <Container maxWidth="md" sx={{ py: 4 }}>
-      <Card sx={{ borderRadius: 3, boxShadow: 4 }}>
+      <Card sx={{ borderRadius: 3, boxShadow: 4 , marginTop:8}}>
         <CardMedia
           component="img"
           height="350"
@@ -141,8 +149,10 @@ export function BeritaDetail() {
           />
         </CardContent>
       </Card>
-    </Container>
-    
 
+     
+    </Container>
+    <Footer/>
+    </>
   );
 }
